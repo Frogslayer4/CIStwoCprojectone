@@ -83,8 +83,8 @@ void testListNodeString() {
     ListNode<string> node2("world");
     node1.SetNext(&node2);
 
-    assert(node1.GetNext() == &node2);
-    assert(node1.GetNext()->GetData() == "world");
+    assert(node1.getNext() == &node2);
+    assert(node1.getNext()->GetData() == "world");
 
     cout << "testListNodeString passed!" << endl;
 }
@@ -104,7 +104,7 @@ int main() {
     while (current != nullptr) {
         cout << current->GetData();
         cout << " -> ";
-        current = current->GetNext();
+        current = current->getNext();
     }
     cout << "nullptr" << endl;
 
@@ -112,7 +112,7 @@ int main() {
     current = head;
     while (current != nullptr) {
         ListNode<int>* temp = current;
-        current = current->GetNext();
+        current = current->getNext();
         delete temp;
     }
 

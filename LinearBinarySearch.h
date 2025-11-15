@@ -2,7 +2,7 @@
 #define LINEARBINARYSEARCH_H
 #include <iostream>
 #include <string>
-
+#include "ListNode.h"
 template <typename T>
 T getMax(T a, T b) {
     return (a > b) ? a : b;
@@ -17,10 +17,20 @@ Binary Search(Miss) : On a sorted list["a", "b", "c"], searching for "z" should 
 
 
 //given list unsorted
-listNode linearSearch(list, ){
+template <typename T>
+listNode linearSearch(const listNode head, const T deleteData){
+    listNode deleteNode = head;
+    while (deleteNode != nullptr) {
+        if (deleteNode->data == deleteData) {
+            return deleteNode;
+        }
+        deleteNode = deleteNode->next;
+    }
+    return nullptr;
 }
 
 
+//given list sorted
 listNode binarySearch{
 
 }

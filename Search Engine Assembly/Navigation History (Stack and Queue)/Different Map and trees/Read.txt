@@ -1,0 +1,3 @@
+In general, these maps and trees are each needed to be tested for the inverted index for 
+mapping words to document IDs. Need to use graphs and tables to display results and their big(o) notation
+for each operation they do. theory vs practice also
