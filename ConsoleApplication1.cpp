@@ -21,7 +21,7 @@
 #include "ArrayStack.h"
 //phase 1 core containers & tokenizer
 #include "ListNode.h"
-#include "MergeSort&QuickSort.h"
+#include "MergeAndQuickSort.h"
 #include "ListQueue.h"
 #include "SingleLinkedList.h"
 //still needs tokenizer
@@ -117,4 +117,5 @@ int main() {
     }
 
     return 0;
+
 }
