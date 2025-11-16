@@ -4,7 +4,6 @@
 // this is used for the history stack of when user goes "backward" in the search engine, "forward" is for queue
 #include <iostream>
 #include <vector>
-#include 
     template<typename T>
 
     class ArrayStack {

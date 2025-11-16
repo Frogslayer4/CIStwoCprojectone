@@ -13,7 +13,7 @@ public:
     treeNode* right;
     treeNode* parent;
 
-    treeNode(T data) : data(value), left(nullptr), right(nullptr), parent(nullptr) {}
+    treeNode(T value) : data(value), left(nullptr), right(nullptr), parent(nullptr) {}
     // treeNode is some value
 };
 

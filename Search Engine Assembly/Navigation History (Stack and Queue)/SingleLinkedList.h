@@ -45,11 +45,27 @@ template <typename data>
             }
         }
 
-        //deletion, needs head, tail, and middle cases
+        //deletion, needs head, tail, and middle cases, 
+        //maybe do 
         void deleteNode(data deleteData) {
             //calls linear search to find the data
-            listNode deleteNode = (head, deleteData)
-            
+            listNode deleteNode = linearSearch(head, deleteData);
+            //if deleteNode is nullptr, 
+            if(deleteNode == nullptr) {
+                return;
+            }
+            else{
+                //edge case for head
+                if (deleteNode == head) {
+                    head = head->next;
+                    delete deleteNode;
+                    return true;
+                }
+                //edge case for tail
+
+                //middle case
+                
+            }
         }
         
         //traversal, prints every element
