@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+// Merge sort and quicksort for std::vector<std::string>
 void Merge(vector<string>* letters, int leftFirst, int leftLast, int rightLast){
     int partSize = rightLast - leftFirst + 1;
     vector<string> partition(partSize);
