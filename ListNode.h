@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef NUMBERLISTNODE_H
 #define NUMBERLISTNODE_H
 
@@ -11,7 +9,7 @@ template <typename T>
 class listNode {
 protected:
     T data;
-    listNode<Node>* next;
+    listNode<T>* next;
 
 public:
     // Constructs this node with the specified data value. The next
@@ -19,12 +17,6 @@ public:
     listNode(T initialData) {
         data = initialData;
         next = nullptr;
-    }
-
-    // Constructs this node with the specified data value, next ptr
-    listNode(T initialData, listNode<T>* nextNode) {
-        data = initialData;
-        next = nextNode;
     }
 
     virtual ~listNode() {
@@ -41,7 +33,7 @@ public:
     }
 
     // Gets this node's next pointer.
-    virtual listNode<T>* GetNext() {
+    virtual listNode<T>* getNext() {
         return next;
     }
 

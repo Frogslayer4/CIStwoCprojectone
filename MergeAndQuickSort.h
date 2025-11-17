@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 void Merge(vector<string>* letters, int leftFirst, int leftLast, int rightLast){

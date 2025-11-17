@@ -4,20 +4,21 @@
 // this is used for the history stack of when user goes "backward" in the search engine, "forward" is for queue
 #include <iostream>
 #include <vector>
+using namespace std;
     template<typename T>
 
     class ArrayStack {
     private:
-        std::vector<T> stack;   
+        vector<T> stack;   
     public:
         //constructor
         ArrayStack() {
-            stack = std::vector<T>();
+            stack = vector<T>();
         }
 
         //push
-        void push(T item) {
-            stack.push_back(item);
+        void push(T data) {
+            stack.push_back(data);
         }
 
         //top

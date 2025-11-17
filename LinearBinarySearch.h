@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "ListNode.h"
+using namespace std;
 template <typename T>
 T getMax(T a, T b) {
     return (a > b) ? a : b;
@@ -18,7 +19,7 @@ Binary Search(Miss) : On a sorted list["a", "b", "c"], searching for "z" should 
 
 //given list unsorted, returns node before node that needed to be found
 template <typename T>
-listNode* linearSearch(const listNode* head, const T findData){
+listNode<T>* linearSearch(const listNode<T>* head, const T findData){
     listNode* findNode = head;
     while (findNode != nullptr) {
         if (findNode->data == findData) {
@@ -30,10 +31,28 @@ listNode* linearSearch(const listNode* head, const T findData){
 }
 
 
-//sorted vector for binary search
-template <typename T>
-listNode binarySearch{
 
+//sorted vector for binary search, T should be a string
+template <typename T>
+int binarySearch(const vector<T>& sortedVector, const T findData) {
+    int left = 0;
+    int right = sortedVector.size() - 1;
+    int mid;
+    while (left <= right) {
+        mid = (right + left) / 2;
+        // Search in the right half
+        if (sortedVector[mid].compare(findData) < 0) {
+            left = mid + 1; 
+        }
+        // Search in the left half
+        else if (sortedVector[mid].compare(findData) > 0) {
+            right = mid - 1; 
+        }
+        else{
+            return mid; // Element found at index mid
+        }
+    }
+    return -1; // Element not found
 }
 
 

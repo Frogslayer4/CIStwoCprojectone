@@ -25,15 +25,19 @@ Use your long_sorted.txt file.
 template <typename K, typename V>
 
 class BSTMap {
-private:
-    struct Node {
-        K key;
-        V value;
-        Node* left;
-        Node* right;
-
-        Node(K k, V v) : key(k), value(v), left(nullptr), right(nullptr) {}
-
-    };
+    private:
+        treeNode<K>* root;
+    public:
+        BSTMap() : root(nullptr) {} 
+        ~BSTMap() {
+            // actually delete the tree nodes to free memory
+            delete root;
+        }
+        // Implement the insert function for the BSTMap, which should insert a new key-value pair or update the value if the key already exists.
+        void insertTreeNode(K key, V value) {
+            
+            }
+        }
+}; 
 
     // Node* root;

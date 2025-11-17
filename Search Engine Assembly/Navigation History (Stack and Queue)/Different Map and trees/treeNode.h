@@ -3,18 +3,25 @@
 #ifndef TREENODE_H
 #define TREENODE_H 
 
-template <typename T>
+template <typename K, typename V>
 class treeNode {
     //allows for easy access of left, right, and parent, idk if treeNode should contain functions
     //or be private/protected, but im lazy
 public:
-    T data;
+    T key;  // the string key
+    V value; // # of keys in document
     treeNode* left;
     treeNode* right;
     treeNode* parent;
 
-    treeNode(T value) : data(value), left(nullptr), right(nullptr), parent(nullptr) {}
-    // treeNode is some value
+    
+treeNode(K key1, V value1) : key(key1), value(value1), left(nullptr), right(nullptr), parent(nullptr) {}
+~treeNode() {
+    // Implement a destructor to free memory
+    delete left;
+    delete right;
+
+
 };
 
 
