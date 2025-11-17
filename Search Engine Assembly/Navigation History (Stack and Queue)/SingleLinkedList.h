@@ -15,7 +15,6 @@ template <typename data>
     protected:
         listNode* head;
         listNode* tail;
-        //size 
 
     public:
         //insertion, deletion, travversal, size op
@@ -27,13 +26,20 @@ template <typename data>
 
         //destructor
         virtual ~singleLinkedList() {
-            
+            listNode* currentNode = head;
+            listNode* deleteNode = nullptr;
+            //deletes every node in the list, 
+            while (currentNode) {
+                deleteNode = currentNode;
+                currentNode = currentNode->next;
+                delete deleteNode;
+            }
         }
-       
+
         //insertion, technically appending
         void insertNode(data insertData) {
             //edge case for head
-            listNode curr = new listNode(insertData)
+            listNode* curr = new listNode(insertData)
             if (head == nullptr) {
                 head->data = curr;
                 tail->data = curr;
@@ -45,30 +51,37 @@ template <typename data>
             }
         }
 
-        //deletion, needs head, tail, and middle cases, 
-        //maybe do 
-        void deleteNode(data deleteData) {
+        //deletion, needs head, tail, and middle cases, returns true/false if delete successful
+        void delete(data deleteData) {
             //calls linear search to find the data
-            listNode deleteNode = linearSearch(head, deleteData);
-            //if deleteNode is nullptr, 
+            listNode* deleteNode = linearSearch(head, deleteData);
+            listNode* prevNode = head;
+            //if deleteNode nullptr, there's no data to delete
             if(deleteNode == nullptr) {
-                return;
             }
             else{
                 //edge case for head
                 if (deleteNode == head) {
                     head = head->next;
                     delete deleteNode;
-                    return true;
                 }
-                //edge case for tail
-
-                //middle case
-                
+                else{
+                //finds the node before the deleteNode, so prevNode->next = deleteNode               
+                while (prevNode->next != deleteNode) {
+                    prevNode = prevNode->next;
+                }
+                //middle case, this makes prevNode->next = node after deleteNode
+                prevNode->next = deleteNode->next;
+                //if deleteNode is tail, update tail to prevNode
+                if (deleteNode != tail) {
+                    prevNode->next = deleteNode->next;
+                }
+                delete deleteNode;
+                }
             }
         }
         
-        //traversal, prints every element
+        //traversal, idk the purpose of this
         void traverseList() const
         {}
 

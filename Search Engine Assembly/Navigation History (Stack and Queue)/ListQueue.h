@@ -6,7 +6,7 @@
 #include <vector>
 #include "SingleLinkedList.h"
 
-template<typename T>
+template<typename >
 class ListQueue {
 private:
     SingleLinkedList<T> queue; 

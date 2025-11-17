@@ -16,21 +16,22 @@ Binary Search(Miss) : On a sorted list["a", "b", "c"], searching for "z" should 
 */
 
 
-//given list unsorted
+//given list unsorted, returns node before node that needed to be found
 template <typename T>
-listNode linearSearch(const listNode head, const T deleteData){
-    listNode deleteNode = head;
-    while (deleteNode != nullptr) {
-        if (deleteNode->data == deleteData) {
-            return deleteNode;
+listNode* linearSearch(const listNode* head, const T findData){
+    listNode* findNode = head;
+    while (findNode != nullptr) {
+        if (findNode->data == findData) {
+            return findNode;
         }
-        deleteNode = deleteNode->next;
+        findNode = findNode->next;
     }
     return nullptr;
 }
 
 
-//given list sorted
+//sorted vector for binary search
+template <typename T>
 listNode binarySearch{
 
 }

@@ -7,22 +7,22 @@
 #include <string>
 using namespace std;
 
-template <typename Node>
+template <typename T>
 class listNode {
 protected:
-    Node data;
+    T data;
     listNode<Node>* next;
 
 public:
     // Constructs this node with the specified data value. The next
     // and previous pointers are each assigned nullptr.
-    listNode(Node initialData) {
+    listNode(T initialData) {
         data = initialData;
         next = nullptr;
     }
 
     // Constructs this node with the specified data value, next ptr
-    listNode(Node initialData, listNode<Node>* nextNode) {
+    listNode(T initialData, listNode<T>* nextNode) {
         data = initialData;
         next = nextNode;
     }
@@ -31,22 +31,22 @@ public:
     }
 
     // Returns this node's data.
-    virtual Node getData() {
+    virtual T getData() {
         return data;
     }
 
     // Sets this node's data.
-    virtual void setData(Node newData) {
+    virtual void setData(T newData) {
         data = newData;
     }
 
     // Gets this node's next pointer.
-    virtual listNode<Node>* GetNext() {
+    virtual listNode<T>* GetNext() {
         return next;
     }
 
     // Sets this node's next pointer.
-    virtual void setNext(listNode<Node>* newNext) {
+    virtual void setNext(listNode<T>* newNext) {
         next = newNext;
     }
 

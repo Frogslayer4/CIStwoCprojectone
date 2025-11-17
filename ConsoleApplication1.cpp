@@ -17,7 +17,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-
 #include "ArrayStack.h"
 //phase 1 core containers & tokenizer
 #include "ListNode.h"
@@ -26,8 +25,7 @@
 #include "SingleLinkedList.h"
 //still needs tokenizer
 //phase 2 sorting
-#include "MergeSort&QuickSort.h"
-#include <print>
+#include "MergeAndQuickSort.h"
 using namespace std;
 
 /*
