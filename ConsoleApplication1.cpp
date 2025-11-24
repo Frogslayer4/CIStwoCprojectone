@@ -17,15 +17,15 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include "ArrayStack.h"
+#include "ArrayStack.hpp"
 //phase 1 core containers & tokenizer
-#include "ListNode.h"
-#include "MergeAndQuickSort.h"
-#include "ListQueue.h"
-#include "SingleLinkedList.h"
+#include "ListNode.hpp"
+#include "MergeAndQuickSort.hpp"
+#include "ListQueue.hpp"
+#include "SingleLinkedList.hpp"
 //still needs tokenizer
 //phase 2 sorting
-#include "MergeAndQuickSort.h"
+#include "MergeAndQuickSort.hpp"
 using namespace std;
 
 /*
@@ -74,33 +74,33 @@ void testListNodeString() {
     cout << "Running testListNodeString..." << endl;
 
     // Create node
-    ListNode<string> node1("hello");
-    assert(node1.GetData() == "hello");
+    listNode<string> node1("hello");
+    assert(node1.getData() == "hello");
 
     // Link nodes
-    ListNode<string> node2("world");
-    node1.SetNext(&node2);
+    listNode<string> node2("world");
+    node1.setNext(&node2);
 
     assert(node1.getNext() == &node2);
-    assert(node1.getNext()->GetData() == "world");
+    assert(node1.getNext()->getData() == "world");
 
     cout << "testListNodeString passed!" << endl;
 }
 
 int main() {
     // Create nodes
-    ListNode<int>* head = new ListNode<int>(10);
-    ListNode<int>* node2 = new ListNode<int>(20);
-    ListNode<int>* node3 = new ListNode<int>(30);
+    listNode<int>* head = new listNode<int>(10);
+    listNode<int>* node2 = new listNode<int>(20);
+    listNode<int>* node3 = new listNode<int>(30);
 
     // Link nodes
-    head->SetNext(node2);
-    node2->SetNext(node3);
+    head->setNext(node2);
+    node2->setNext(node3);
 
     // Traverse and print
-    ListNode<int>* current = head;
+    listNode<int>* current = head;
     while (current != nullptr) {
-        cout << current->GetData();
+        cout << current->getData();
         cout << " -> ";
         current = current->getNext();
     }
@@ -109,7 +109,7 @@ int main() {
     // Cleanup
     current = head;
     while (current != nullptr) {
-        ListNode<int>* temp = current;
+        listNode<int>* temp = current;
         current = current->getNext();
         delete temp;
     }

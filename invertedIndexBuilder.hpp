@@ -23,28 +23,42 @@ query processing,
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "BSTMap.h"
-#include "HashMap.h"
-#include "AVL tree.h"
-#include "red-black tree.h"
+#include "BSTMap.hpp"
+#include "HashMap.hpp"
+#include "AVL tree.hpp"
+#include "red-black tree.hpp"
+#include "SingleLinkedList.hpp"
+#include "Tokenizer.hpp"
     //starting using hash map
     // Use a hash map to store the inverted index
-    // where the key is a word and the value is a list of document IDs and their frequencies
+    // where the key is a word and the value is a docID
     // Format should be: word -> {docID -> frequency}
 
 
 class InvertedIndexBuilder {
 private:
     //variables are string for the word, docId, and frequency of the word in the document
-    //K for the word, V for requency
-    //each document 
-
+    //stores frequency count for each word in the document, and the document ID
+    //frequency count is the number of times the word appears in the document, docID is the unique identifier for the document
+    BSTMap<string, vector<pair<string, int>>> bst; // word -> (docID, frequency)
 public:
     //opens the 4 txt files, reads them, and builds the inverted index using hash map
     //tokenizer function returns a linkedList of the normalized words in the document, which is then used to build the inverted index
     //turns linked list into some translation for sorting and binary search, then adds to the hash map for sorting
 
     //orders docID by frequency of the word in the document, 
+    //given a vector of docIDs, sort them 
+    InvertedIndexBuilder(ifstream& inputFile) {
+        //creates BSTMAP then reads the input file and builds the inverted index
+        singleLinkedList <string> list = tokenizer(inputFile);
+        vector<string> sorting; // Assuming toVector() converts the linked list to a vector of strings
+        
+        //sorts the list of words, then iterates through the sorted list to add each word to the BSTMAP, with the docID (name) and frequency count updated for each word, if in same docID, iterates frequency count here
+        
+    }
+        // constructor code to initialize the inverted index
+    
+    
 };
 
 #endif

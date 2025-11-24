@@ -6,8 +6,8 @@
 
 #include <iostream>
 #include <string>
-#include "ListNode.h"
-#include "LinearBinarySearch.h"
+#include "ListNode.hpp"
+#include "LinearBinarySearch.hpp"
 
 template <typename data>
     // Base class of Single-linked list of ListNode (unsorted)
@@ -82,8 +82,14 @@ template <typename data>
         }
         
         //traversal, idk the purpose of this
-        void traverseList() const
-        {}
+        void traverseList() const{
+            listNode* curr = head;
+            while (curr) {
+                cout << curr->data << " -> ";
+                curr = curr->next;
+            }
+            cout << "nullptr" << endl;
+        }
 
         //size 
         int getSize() {
@@ -96,7 +102,60 @@ template <typename data>
             return count;
         }
 
-        
+        //copy constructor
+        singleLinkedList(const singleLinkedList& other) {
+            // goes through this if-else statement if not the same, if list is empty, set head and tail to nullptr
+                if(other.head == nullptr) {
+                    head = nullptr;
+                    tail = nullptr;
+                }
+            // otherswise, copy the nodes from the other list to this list
+                else {
+                    // creates variables currOther and currThis to traverse the other list and copy its data into this list 
+                    head = new listNode(other.head->data);
+                    listNode* currOther = other.head->next;
+                    listNode* currThis = head;
+
+                    // The loop stops until currOther is nullptr
+                    while (currOther) {
+                        currThis->next = new listNode(currOther->data);
+                        currThis = currThis->next;
+                        currOther = currOther->next;
+                    }
+                    // sets currThis to tail of list since the currOther is 1 node higher than currThis 
+                    tail = currThis;
+                }
+        }
+
+        //copy asssignment constructor
+        singleLinkedList& operator=(const singleLinkedList& other) {
+            // case if other is the same as this, return this
+            if (this == &other) {
+                return *this;
+            }
+            // goes through this if-else statement if not the same, if list is empty, set head and tail to nullptr
+                if(other.head == nullptr) {
+                    head = nullptr;
+                    tail = nullptr;
+                }
+            // otherswise, copy the nodes from the other list to this list
+                else {
+                    // creates variables currOther and currThis to traverse the other list and copy its data into this list 
+                    head = new listNode(other.head->data);
+                    listNode* currOther = other.head->next;
+                    listNode* currThis = head;
+
+                    // The loop stops until currOther is nullptr
+                    while (currOther) {
+                        currThis->next = new listNode(currOther->data);
+                        currThis = currThis->next;
+                        currOther = currOther->next;
+                    }
+                    // sets currThis to tail of list since the currOther is 1 node higher than currThis 
+                    tail = currThis;
+                }
+        return *this;
+        }
 };
 
 

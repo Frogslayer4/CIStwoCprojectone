@@ -15,6 +15,16 @@ using namespace std;
         ArrayStack() {
             stack = vector<T>();
         }
+        //destructor
+        ~ArrayStack() {
+        }
+        //copy constructor, calls on copy assignment operator to copy the stack
+        ArrayStack(const ArrayStack& other) {
+            ArrayStack<T> newStack = other;
+
+        }
+        //
+        
 
         //push
         void push(T data) {

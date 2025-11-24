@@ -3,16 +3,21 @@
 //template for ListQueue<T> (LinkedList-backed) enqueue, front, size, dequeue, isempty
 //also used for history of search engine queries, this is used for the history queue of when user goes "forward" in the search engine, "backward" is for stack
 #include <iostream>
-#include "SingleLinkedList.h"
-#include "ListNode.h"
+#include "SingleLinkedList.hpp"
+#include "ListNode.hpp"
 template<typename T>
 class ListQueue {
 private:
-    SingleLinkedList<T> queue; 
+    singleLinkedList<T> queue; 
 public:
     //constructor
     ListQueue() {
         queue = SingleLinkedList<T>();
+    }
+    //destructor
+    ListQueue() {
+        // The destructor will automatically call the destructor of SingleLinkedList, which will free the memory of the nodes
+        
     }
 
     //enqueue

@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 // Merge sort and quicksort for std::vector<std::string>
-void Merge(vector<string>* letters, int leftFirst, int leftLast, int rightLast){
+void Merge(vector<string>& letters, int leftFirst, int leftLast, int rightLast){
     int partSize = rightLast - leftFirst + 1;
     vector<string> partition(partSize);
 
@@ -54,7 +54,7 @@ void MergeSort(vector<string> letters, int startInd, int endInd){
 
 int Partition(vector<string> chars, int lowInd, int highInd){
     int mid = (lowInd + (highInd-lowInd)/2);
-    int pivot = chars.at(midpoint);
+    string pivot = chars.at(mid);
 
     bool done = false;
     while (!done){
@@ -70,7 +70,7 @@ int Partition(vector<string> chars, int lowInd, int highInd){
             done = true;
         }
         else {
-            char temp = chars.at(lowInd);
+            string temp = chars.at(lowInd);
             chars.at(lowInd) = chars.at(highInd);
             chars.at(highInd) = temp;
 
