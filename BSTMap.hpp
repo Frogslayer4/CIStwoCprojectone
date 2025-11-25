@@ -41,6 +41,7 @@ class BSTMap {
                 root = newNode;
             }
             else {
+                
                 treeNode* currNode = root;
                 //Traverses the tree to update/insert key-value pair
                 while (currNode) {

@@ -84,7 +84,7 @@ template <typename data>
         //traversal, idk the purpose of this
         void traverseList() const{
             listNode* curr = head;
-            while (curr) {
+            while (curr != nullptr) {
                 cout << curr->data << " -> ";
                 curr = curr->next;
             }
@@ -104,7 +104,7 @@ template <typename data>
 
         //copy constructor
         singleLinkedList(const singleLinkedList& other) {
-            // goes through this if-else statement if not the same, if list is empty, set head and tail to nullptr
+            // if other list is empty, set head and tail to nullptr
                 if(other.head == nullptr) {
                     head = nullptr;
                     tail = nullptr;
@@ -127,13 +127,19 @@ template <typename data>
                 }
         }
 
-        //copy asssignment constructor
+        //copy assignment constructor
         singleLinkedList& operator=(const singleLinkedList& other) {
-            // case if other is the same as this, return this
-            if (this == &other) {
-                return *this;
+            if(this != &other) {
+                //deletes every node in the list
+                listNode* currentNode = head;
+                listNode* deleteNode = nullptr;
+                while (currentNode) {
+                deleteNode = currentNode;
+                currentNode = currentNode->next;
+                delete deleteNode;
             }
-            // goes through this if-else statement if not the same, if list is empty, set head and tail to nullptr
+            // goes through this if-else statement to copy the other list into this list
+            // if other list is empty, set head and tail to nullptr
                 if(other.head == nullptr) {
                     head = nullptr;
                     tail = nullptr;
@@ -154,7 +160,11 @@ template <typename data>
                     // sets currThis to tail of list since the currOther is 1 node higher than currThis 
                     tail = currThis;
                 }
+            }
         return *this;
+        }
+        listNode<T>* getHead() const {
+            return head;
         }
 };
 
